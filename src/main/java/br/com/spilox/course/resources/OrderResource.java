@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.spilox.course.entities.User;
-import br.com.spilox.course.services.UserService;
+import br.com.spilox.course.entities.Order;
+import br.com.spilox.course.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/orders")
+public class OrderResource {
 
 	@Autowired
-	UserService userService;
+	OrderService orderService;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> users = userService.findAll();
+	public ResponseEntity<List<Order>> findAll(){
+		List<Order> users = orderService.findAll();
 		return ResponseEntity.ok().body(users);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Integer id){
-		User user = userService.findById(id);
+	public ResponseEntity<Order> findById(@PathVariable Integer id){
+		Order user = orderService.findById(id);
 		
 		if (user == null) {
 			return ResponseEntity.notFound().build();
