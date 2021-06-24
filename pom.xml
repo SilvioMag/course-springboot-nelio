@@ -14,7 +14,7 @@
 	<name>course</name>
 	<description>Curso de Spring - Prof.Nelio Alves</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
