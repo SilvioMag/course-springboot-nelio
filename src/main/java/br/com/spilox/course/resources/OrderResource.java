@@ -27,13 +27,13 @@ public class OrderResource {
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Order> findById(@PathVariable Integer id){
-		Order user = orderService.findById(id);
+		Order order = orderService.findById(id);
 		
-		if (user == null) {
+		if (order == null) {
 			return ResponseEntity.notFound().build();
 		}
 
-		return ResponseEntity.ok(user);
+		return ResponseEntity.ok(order);
 		
 	}
 }
