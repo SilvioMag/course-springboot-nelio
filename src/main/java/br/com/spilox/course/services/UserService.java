@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.spilox.course.entities.User;
 import br.com.spilox.course.repositories.UserRepository;
+import br.com.spilox.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -21,12 +22,7 @@ public class UserService {
 	
 	public User findById(Integer id) {
 		Optional<User> user = userRepository.findById(id);
-		
-		if (! user.isPresent()) {
-			return null;
-		}
-		
-		return user.get();
+		return user.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User insert(User user) {
